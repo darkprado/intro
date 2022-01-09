@@ -1,23 +1,32 @@
 package darkprado.spring_intro;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 /**
  * @author s.melekhin
  * @since 09 янв. 2022 г.
  */
+@Component
 public class Person {
 
     private Pet pet;
+    @Value("${person.surname}")
     private String surname;
+    @Value("${person.age}")
     private int age;
 
-//    public Person(Pet pet) {
-//        System.out.println("Person bean is created");
-//        this.pet = pet;
-//    }
-
-    public Person() {
+    @Autowired
+    public Person(@Qualifier("dog") Pet pet) {
         System.out.println("Person bean is created");
+        this.pet = pet;
     }
+
+//    public Person() {
+//        System.out.println("Person bean is created");
+//    }
 
     public void setPet(Pet pet) {
         System.out.println("Class Person set pet");
