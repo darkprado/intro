@@ -13,7 +13,21 @@ public class Book {
     @Value("book2")
     private String name;
 
+    @Value("author2")
+    private String author;
+
+    @Value("1866")
+    private String yearOfPublic;
+
     public String getName() {
         return name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getYearOfPublic() {
+        return yearOfPublic;
     }
 }
