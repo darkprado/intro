@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
  * @author s.melekhin
  * @since 24 янв. 2022 г.
  */
-public class Test2 {
+public class TestGet {
 
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()

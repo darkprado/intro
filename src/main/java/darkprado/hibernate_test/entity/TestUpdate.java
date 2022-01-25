@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
  * @author s.melekhin
  * @since 24 янв. 2022 г.
  */
-public class Test1 {
+public class TestUpdate {
 
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
@@ -18,11 +18,12 @@ public class Test1 {
 
         try {
             Session session = factory.getCurrentSession();
-
-            Employee emp = new Employee("Elena", "Melekhina", "TEST", 150);
             session.beginTransaction();
-            session.save(emp);
+//            Employee employee = session.get(Employee.class, 1);
+//            employee.setSalary(1000);
+            session.createQuery("update Employee set salary = '900' where salary < 1000").executeUpdate();
             session.getTransaction().commit();
+
         } finally {
             factory.close();
         }
